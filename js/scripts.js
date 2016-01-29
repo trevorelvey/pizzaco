@@ -6,7 +6,7 @@ function Order(toppings, sauce, sze) {
   this.sze = sze;
 };
 
-Ticket.prototype.toppingOptions = function() {
+Order.prototype.toppingOptions = function() {
   if (this.toppings === "Hawaiian") {
     return 2;
   } else if (this.toppings === "Pepperoni") {
