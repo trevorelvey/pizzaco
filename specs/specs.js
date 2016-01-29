@@ -18,7 +18,12 @@ describe("Order", function() {
   });
 
   it("add function for size", function() {
-    var testOrder = new Order ("Hawiian", "Red Sauce", "Large");
+    var testOrder = new Order ("Hawaiian", "Red Sauce", "Large");
     expect(testOrder.sizeOptions()).to.equal(15)
+  });
+
+  it("add function for pizza price", function() {
+    var testOrder = new Order ("Hawaiian", "Red Sauce", "Large");
+    expect(testOrder.orderPrice()).to.equal(17);
   });
 });
