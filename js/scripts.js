@@ -7,7 +7,9 @@ function Order(toppings, sauce, sze) {
 };
 
 Order.prototype.toppingOptions = function() {
-  if (this.toppings === "Hawaiian") {
+  if (this.toppings === NaN) {
+    alert("Please pick a topping!");
+  } else if (this.toppings === "Hawaiian") {
     return 2;
   } else if (this.toppings === "Pepperoni") {
     return 1;
@@ -17,7 +19,9 @@ Order.prototype.toppingOptions = function() {
 };
 
 Order.prototype.sauceOptions = function() {
-  if (this.sauce === "Red Sauce") {
+  if (this.toppings === NaN) {
+    alert("Please pick a sauce!");
+  } else if (this.sauce === "Red Sauce") {
     return 0;
   } else {
     return 2;
@@ -25,38 +29,41 @@ Order.prototype.sauceOptions = function() {
 };
 
 Order.prototype.sizeOptions = function() {
-  if (this.sze === "Large") {
-    return 15;
+  if (this.toppings === NaN) {
+    alert("Please pick a size!");
+  } else if (this.sze === "Large") {
+    return 5;
   } else if (this.sze === "Medium") {
-    return 12;
+    return 2;
   } else {
-    return 10;
+    return 0;
   };
 };
 
 Order.prototype.orderPrice = function () {
-  var result = this.toppingOptions() + this.sauceOptions() + this.sizeOptions();
+  var base = 10;
+  var result = base + this.toppingOptions() + this.sauceOptions() + this.sizeOptions();
   return result;
 };
 
 // UI
 
-function resetFields() {
-  $("input#toppingOptions").val("");
-  $("input#sauceOptions").val("");
-  $("input#sizeOptions").val("");
-};
-
+// function resetFields() {
+//   $("input#toppingOptions").val("");
+//   $("input#sauceOptions").val("");
+//   $("input#sizeOptions").val("");
+// };
+//
 $(document).ready(function() {
   $("form#orderSelect").submit(function(event) {
     event.preventDefault();
 
-    var inputToppings = #(this).find("input#toppingOptions").val();
-    var inputSauce = #(this).find("input#sauceOptions").val();
-    var inputSize = #(this).find("input#sizeOptions").val();
-    var orderTotal = new Order(inputToppings, inputSauce, inputSize);
+    var inputTopping = $("select#Topping").val();
+    var inputSauce = $("select#Sauce").val();
+    var inputSize = $("select#Size").val();
+    var orderConfirmation = new Order(inputTopping, inputSauce, inputSize);
 
-    orderTotal.orderPrice();
+    $("ul.orderList").append("<li><span class='order'>" + orderConfirmation.orderPrice() + "</span></li>");
 
   });
 });

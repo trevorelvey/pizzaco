@@ -19,7 +19,7 @@ describe("Order", function() {
 
   it("add function for size", function() {
     var testOrder = new Order ("Hawaiian", "Red Sauce", "Large");
-    expect(testOrder.sizeOptions()).to.equal(15)
+    expect(testOrder.sizeOptions()).to.equal(5)
   });
 
   it("add function for pizza price", function() {
