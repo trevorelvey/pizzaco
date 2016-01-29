@@ -23,3 +23,13 @@ Order.prototype.sauceOptions = function() {
     return 2;
   };
 };
+
+Order.prototype.sizeOptions = function() {
+  if (this.sze === "Large") {
+    return 15;
+  } else if (this.sze === "Medium") {
+    return 12;
+  } else {
+    return 10;
+  }
+}

@@ -13,7 +13,12 @@ describe("Order", function() {
   });
 
   it("adds function for sauces", function() {
-    var testOrder = new Order ("Hawiian", "Red Sauce");
+    var testOrder = new Order ("Hawaiian", "Red Sauce");
     expect(testOrder.sauceOptions()).to.equal(0);
+  });
+
+  it("add function for size", function() {
+    var testOrder = new Order ("Hawiian", "Red Sauce", "Large");
+    expect(testOrder.sizeOptions()).to.equal(15)
   });
 });
