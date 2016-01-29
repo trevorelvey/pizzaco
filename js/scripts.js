@@ -7,9 +7,7 @@ function Order(toppings, sauce, sze) {
 };
 
 Order.prototype.toppingOptions = function() {
-  if (this.toppings === NaN) {
-    alert("Please pick a topping!");
-  } else if (this.toppings === "Hawaiian") {
+  if (this.toppings === "Hawaiian") {
     return 2;
   } else if (this.toppings === "Pepperoni") {
     return 1;
@@ -19,9 +17,7 @@ Order.prototype.toppingOptions = function() {
 };
 
 Order.prototype.sauceOptions = function() {
-  if (this.toppings === NaN) {
-    alert("Please pick a sauce!");
-  } else if (this.sauce === "Red Sauce") {
+  if (this.sauce === "Red Sauce") {
     return 0;
   } else {
     return 2;
@@ -29,9 +25,7 @@ Order.prototype.sauceOptions = function() {
 };
 
 Order.prototype.sizeOptions = function() {
-  if (this.toppings === NaN) {
-    alert("Please pick a size!");
-  } else if (this.sze === "Large") {
+  if (this.sze === "Large") {
     return 5;
   } else if (this.sze === "Medium") {
     return 2;
@@ -48,22 +42,22 @@ Order.prototype.orderPrice = function () {
 
 // UI
 
-// function resetFields() {
-//   $("input#toppingOptions").val("");
-//   $("input#sauceOptions").val("");
-//   $("input#sizeOptions").val("");
-// };
-//
 $(document).ready(function() {
   $("form#orderSelect").submit(function(event) {
-    event.preventDefault();
-
     var inputTopping = $("select#Topping").val();
     var inputSauce = $("select#Sauce").val();
     var inputSize = $("select#Size").val();
     var orderConfirmation = new Order(inputTopping, inputSauce, inputSize);
 
-    $("ul.orderList").append("<li><span class='order'>" + orderConfirmation.orderPrice() + "</span></li>");
+    var total = orderConfirmation.orderPrice();
 
+    $(".display").empty();
+      $(".display").append("<li class='toppingli'>" + ("You've chosen: ") + inputTopping + "</li>");
+      $(".display").append("<li class='sauceli'>" + ("With: ") + inputSauce + " </li>");
+      $(".display").append("<li class='sizeli'>" + ("Size: ") + inputSize + " </li>");
+      $(".display").append("<li> Total: $" + total + "</li>");
+      $(".ticket").show();
+
+    event.preventDefault();
   });
 });
