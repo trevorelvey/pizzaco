@@ -13,5 +13,13 @@ Order.prototype.toppingOptions = function() {
     return 1;
   } else {
     return 0;
-  }
+  };
+};
+
+Order.prototype.sauceOptions = function() {
+  if (this.sauce === "Red Sauce") {
+    return 0;
+  } else {
+    return 2;
+  };
 };
