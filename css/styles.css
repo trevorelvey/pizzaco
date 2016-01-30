@@ -1,8 +1,26 @@
+/* General Formatting*/
 body {
   padding-top: 70px;
   background-color: #408358;
 }
 
+.well {
+  /*background: rgba(10, 15, 20, 0.6);*/
+  background-color: #ff6f00;
+  border: 0px;
+}
+
+label {
+  color: #408358;
+}
+
+ul {
+  padding-top: 20px;
+  color: #408358;
+  font-weight: bold;
+}
+
 /* Navbar Formatting */
-.navbar {
+.navbar img{
+  max-height: 100%;
 }
